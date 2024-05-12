@@ -14,3 +14,28 @@
     
 """
 
+import pygame
+import sys
+from base_chess.constants import *
+from base_chess.gameclass import Game
+
+class Main:
+    
+    def __init__(self):
+        pygame.init()
+        self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+        pygame.display.set_caption('Chess Opening Theory Tool')
+        self.game = Game()
+
+    def mainloop(self):
+        
+        while True:
+            self.game.show_bg(self.screen)
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
+                pygame.display.update()
+
+main = Main()
+main.mainloop()
